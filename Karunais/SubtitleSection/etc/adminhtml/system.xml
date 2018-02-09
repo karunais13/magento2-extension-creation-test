@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<config
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../../../Magento/Config/etc/system_file.xsd">
+
+    <system>
+        <!-- Vendor Title -->
+        <tab id="karunais" translate="label" sortOrder="10">
+            <label>Karunais</label>
+        </tab>
+
+        <!-- App Section -->
+        <section
+              id="karunais_subtitlesection" translate="label" type="text" sortOrder="10"
+              showInDefault="1" showInWebsite="1" showInStore="1" >
+
+            <!-- Tab Title -->
+            <tab>karunais</tab>
+            <resource>Karunais_SubtitleSection::karunais_subtitlesection</resource>
+
+            <!-- Sub-tab Title -->
+            <label>Subtitle</label>
+
+            <!-- Setting -->
+            <group id="general" translate="label" type="text" sortOrder="10"
+                  showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Subtitle</label>
+
+                <field id="enable" translate="label comment" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Enable Subtitle</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <!-- Select : Field Type -->
+                <field id="field_type" translate="label" type="select" sortOrder="20" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Label Field Type</label>
+                    <source_model>Karunais\SubtitleSection\Model\Source\FieldType</source_model>
+                </field>
+
+                <!-- Field Type Text -->
+                <field id="block_label" translate="label" type="text" sortOrder="30" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Block Label</label>
+                    <depends>
+                        <field id="field_type">2</field>
+                    </depends>
+                </field>
+
+                <!-- Field Type File -->
+                <field id="file_upload" translate="label comment" type="Magento\Config\Block\System\Config\Form\Field\Image"
+                    sortOrder="30" showInDefault="1" showInStore="1" showInWebsite="1" >
+                    <label>Upload file</label>
+                    <backend_model>Karunais\SubtitleSection\Model\Source\ImageUpload</backend_model>
+                    <base_url type="media" scope_info="1">subtitle</base_url>
+                    <comment>
+                        Suitable Image Size (W x H) : 100px x 30px.
+                    </comment>
+                    <depends>
+                        <field id="field_type">1</field>
+                    </depends>
+                </field>
+
+                <!-- Text/Image Position -->
+                <field id="text_align" translate="label" type="select" sortOrder="40" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Text/Image Align</label>
+                    <source_model>Karunais\SubtitleSection\Model\Source\Align</source_model>
+                </field>
+
+            </group>
+            <!-- End Setting -->
+
+        </section>
+        <!-- End App Section -->
+
+    </system>
+
+</config>

@@ -1,0 +1,7 @@
+<div style="clear:both; float:none text-align: <?= $this->getTextAlign()?> ">
+  <?php if ( $this->getFieldType() == '2' ): ?>
+        <h3 class="label"><?= $this->getBlockLabel()?></h3>
+  <?php else: ?>
+        <img src="/media/subtitle/<?= $this->getFile()?>" alt="pic" style="width:100px; height:30px !important;">
+  <?php endif; ?>
+</div>
